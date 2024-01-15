@@ -5,7 +5,7 @@
     </head>
     <body>
         <?php
-            $url = 'https://www.ebay.com/';
+            $url = "https://www.ebay.com/";
             
             $dom = new DOMDocument();
             
@@ -16,13 +16,13 @@
             // Create a DOMXPath
             $xpath = new DOMXPath($dom);
 
-            $itemLinkClass = 'vlp-merch-item-tile'; 
-            $itemNameClass = 'vlp-merch-item-title';
+            $itemLinkClass = "vlp-merch-item-tile"; 
+            $itemNameClass = "vlp-merch-item-title";
             
             $items = $xpath->query("//a[contains(concat(' ', normalize-space(@class), ' '), ' $itemLinkClass ')]");
             
             foreach ($items as $item) {
-                $itemLink = $item->getAttribute('href');
+                $itemLink = $item->getAttribute("href");
                 
                 // Find the item name within the current item container
                 $itemNameNode = $xpath->query(".//h3[contains(concat(' ', normalize-space(@class), ' '), ' $itemNameClass ')]", $item)->item(0);
